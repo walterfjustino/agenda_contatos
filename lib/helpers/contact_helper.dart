@@ -23,12 +23,13 @@ class ContactHelper{
       return _db;
     } else{
       _db = await initDb();
+      return _db;
     }
   }
 
   Future <Database> initDb() async {   // FUNÇÃO QUE CRIA O BANCO DE DADOS E DEFINE LOCAL ONDE É CRIADO
     final databasesPath = await getDatabasesPath();
-    final path = join(databasesPath, "contacts.db"); // LOCAL DO DATABASE
+    final path = join(databasesPath, "contacts2.db"); // LOCAL DO DATABASE
 
     return await openDatabase(path, version: 1, onCreate: (Database db, int newerVersion) async {
       await db.execute(
